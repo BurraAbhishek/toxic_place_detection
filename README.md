@@ -2,12 +2,12 @@
 A simple Arduino-based Gas Leak Detection Device that can warn users about toxic environments, including abnormally high carbon dioxide levels
 
 ## Required hardware components:
-Air quality and gas sensor modules
-Arduino board
-Arduino-compatible USB cable
-Breadboard
-Breadboard wires
-LEDs
+Air quality and gas sensor modules, 
+Arduino board, 
+Arduino-compatible USB cable, 
+Breadboard, 
+Breadboard wires, 
+LEDs, 
 Buzzers
 
 ## Required software:
