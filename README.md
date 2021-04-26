@@ -35,4 +35,7 @@ end if
 END
 ```
 
-### NOTE: This project is still under development. We will release the board setup, board configuration and Arduino code on or before 29 April 2021.
+## Module Diagram
+NOTE: This module diagram was created on Tinkercad and is licensed under Creative Commons Public Domain (CC BY 3.0)
+
+### NOTE: This project is still under development. We will release the Arduino code on or before 29 April 2021.
