@@ -16,8 +16,8 @@ A simple Arduino-based Gas Leak Detection Device that can warn users about toxic
   <li> Arduino-compatible USB cable, </li> 
   <li> Breadboard, </li>
   <li> Breadboard wires, </li>
-  <li> LEDs, </li>
-  <li> Buzzers </li></ul>
+  <li> Red, Green, and Yellow (Optional) LEDs, </li>
+  <li> Buzzer </li></ul>
 
 ## Required software:
 Arduino IDE. Available on https://www.arduino.cc/en/software.
@@ -36,6 +36,13 @@ END
 ```
 
 ## Module Diagram
+<img src="t725.png" alt="Module Diagram" title="Module Diagram, created using Tinkercad">
 NOTE: This module diagram was created on Tinkercad and is licensed under Creative Commons Public Domain (CC BY 3.0)
 
-### NOTE: This project is still under development. We will release the Arduino code on or before 29 April 2021.
+- The breadboard above the Arduino UNO contains the LEDs and buzzers. The LEDs should be visible and the buzzer should be audible.
+- The breadboard below the Arduino UNO contains the MQ Gas sensors. For neatness, the connections to the sensors are not shown. The connections are as follows:
+  - Red wire: +5V
+  - Black wire: GND (Ground)
+  - Brown wires: A0, A1, A2, A3, A4 and/or A5, any of the analog pin(s) can be used. Each pin connects to Analog Output pin of the Gas sensor.
+
+### NOTE: This project is still under development. We will release the Arduino code on or before 5 May 2021.
