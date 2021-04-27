@@ -36,7 +36,7 @@ END
 ```
 
 ## Module Diagram
-<img src="t725.png" alt="Module Diagram" title="Module Diagram, created using Tinkercad">
+<img src="modulediagram/Module Diagram.png" alt="Module Diagram" title="Module Diagram, created using Tinkercad">
 NOTE: This module diagram was created on Tinkercad and is licensed under Creative Commons Public Domain (CC BY 3.0)
 
 - The breadboard above the Arduino UNO contains the LEDs and buzzers. The LEDs should be visible and the buzzer should be audible.
