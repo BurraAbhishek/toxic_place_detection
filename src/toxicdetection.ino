@@ -14,18 +14,39 @@ void setup() {
 
 void loop() {
     // Interfacing with MQ135 to begin with
+    // These values may not be correct.
+    int safety_index = -1;
     int air_quality = analogRead(A0);
     if(air_quality < 150) {
-        // Safe - Green
-        safezone();
+        // Air quality is good
+        safety_index = setSafetyIndex(safety_index, 0);
     } else if(air_quality > 150 && air_quality < 300) {
-        // Slightly hazardous - indicates severe hazards ahead as warning - Yellow
-        warnzone();
+        // Air quality is moderate
+        safety_index = setSafetyIndex(safety_index, 1);
     } else if(air_quality > 300) {
-        // Extremely hazardous - Must avoid - Red
+        // Air quality is extremely poor
+        safety_index = setSafetyIndex(safety_index, 2);
+    }
+    if(safety_index == 0) {
+        // Safe environment
+        safezone();
+    } else if(safety_index == 1) {
+        // Slightly hazardous
+        warnzone();
+    } else if(safety_index == 2) {
+        // Extremely hazardous
         dangerzone();
     }
     delay(1000); // The time interval between two readings is 1000 milliseconds (1 second).
+}
+
+// Set the safety index for this program - 0 (Safe), 1 (Warning), 2 (Hazardous)
+int setSafetyIndex(int current_safety_index, int desired_safety_index) {
+    int new_safety_index = current_safety_index;
+    if(desired_safety_index > current_safety_index) {
+        new_safety_index = desired_safety_index;
+    }
+    return new_safety_index;
 }
 
 // Whatever should happen in case of safe environment - No hazards ahead.
