@@ -15,6 +15,7 @@ void setup() {
 void loop() {
     // Interfacing with MQ135 to begin with
     // These values may not be correct.
+    // TODO: Verify the air quality index limits described below, and change them if needed.
     int safety_index = -1;
     int air_quality = analogRead(A0);
     if(air_quality < 150) {
@@ -27,6 +28,7 @@ void loop() {
         // Air quality is extremely poor
         safety_index = setSafetyIndex(safety_index, 2);
     }
+    // The same code snippet from line 20 to line 30 can be used for the other sensors
     if(safety_index == 0) {
         // Safe environment
         safezone();
