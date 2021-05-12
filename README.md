@@ -48,4 +48,15 @@ NOTE: This module diagram was created on Tinkercad and is licensed under Creativ
   - Black wire: GND (Ground)
   - Brown wires: A0, A1, A2, A3, A4 and/or A5, any of the analog pin(s) can be used. Each pin connects to Analog Output pin of the Gas sensor.
 
-### NOTE: This project is still under development. We will release the Arduino code on or before 8 May 2021.
+## Usage
+1. Either download this repository or git clone using `$ git clone https://github.com/BurraAbhishek/toxic_place_detection.git`.
+2. The source code is in [src/toxicdetection.ino](https://github.com/BurraAbhishek/toxic_place_detection/blob/main/src/toxicdetection.ino). Open it using an Arduino IDE.
+3. Connect the Arduino board to your local machine using an Arduino-compatible USB Cable.
+4. Set the appropriate port number in the Arduino IDE (One port will be displayed, for example, `COM1`)
+5. Compile the program and run it.
+6. To use battery power instead of USB power, shift the jumper in the Arduino board from USB to EXT (External power). The jumper is located next to the USB slot.
+
+
+## LICENSE
+
+The source code is licensed under the Terms of the [MIT License](https://github.com/BurraAbhishek/toxic_place_detection/blob/main/LICENSE).
