@@ -26,7 +26,7 @@ A simple Arduino-based Gas Leak Detection Device that can warn users about toxic
 Arduino IDE. Available on https://www.arduino.cc/en/software.
 
 ## Some basic algorithms:
-Each of these sensors show high reading in hazardous environments and low reading in safe environments.
+For the sensors which show high reading in hazardous environments and low reading in safe environments (e.g. MQ-135):
 The basic algorithm to determine if an environment is safe is as follows:
 ```
 BEGIN
@@ -37,6 +37,63 @@ else:
 end if
 END
 ```
+
+
+For the sensors which show low reading in hazardous environments and high reading in safe environments (e.g. MQ-9):
+The basic algorithm to determine if an environment is safe is as follows:
+```
+BEGIN
+if ((sensor_1 AND sensor_2 AND sensor_3 AND ... sensor_n) == LOW) then
+    // Hazardous environment
+else:
+    // Safe environment
+end if
+END
+```
+
+
+Given that the implementation of both these kind of sensors exist, our approach involves the use of a hazard flag. For the following algorithm, assume that:
+- A sensor S0 shows high reading in hazardous environments and low reading in safe environments
+- A sensor S1 shows low reading in hazardous environments and high reading in safe environments
+- The hazard flag is 1 in a hazardous environment and 0 in a safe environment
+
+Then the approach is as follows:
+```
+BEGIN
+
+int hazardflag = -1;
+
+if (S0 == HIGH){
+    set_hazardflag(1);
+} else {
+    set_hazardflag(0);
+}
+
+if (S1 == HIGH) {
+    set_hazardflag(0);
+} else {
+    set_hazardflag(1);
+}
+
+function set_hazardflag(int n) {
+    if (n > hazardflag) {
+        return n;
+    } else {
+        return hazardflag;
+    }
+}
+
+if (hazardflag == 1) {
+    // Hazardous environment
+} else {
+    // Safe environment
+}
+```
+
+
+The inference is as follows:
+- If any one sensor indicates hazardous environment, then the program should run under the assumption of a hazardous environment.
+- Indicate safe area only if all sensors indicate safe area.
 
 ## Module Diagram
 <img src="modulediagram/Module Diagram.png" alt="Module Diagram" title="Module Diagram, created using Tinkercad">
