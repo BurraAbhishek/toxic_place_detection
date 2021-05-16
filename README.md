@@ -119,7 +119,16 @@ NOTE: This module diagram was created on Tinkercad and is licensed under Creativ
 
 ## Test Simulation
 A simulation of the above is hosted on [Tinkercad](https://www.tinkercad.com/). To see a demo of how this program runs, check https://www.tinkercad.com/things/28n51KBNIkE, a functional version (remix) of the [above prototype](https://github.com/BurraAbhishek/toxic_place_detection#module-diagram). 
- 
+
+NOTE: The code on Tinkercad is different from the code in this repository. This is because Tinkercad supports only one kind of gas sensor which has a different interfacing code.
+
+Testing:
+1. Go to https://www.tinkercad.com/things/28n51KBNIkE.
+2. Click on the 'Simulate' button and wait for the program to load.
+3. To test the working, click on 'Start Simulation'.
+4. Wait for 20 seconds. Then, click on the sensor. Black gas clouds should be visible somewhere in the test area.
+5. To experiment with hazardous environment, drag the gas clouds closer to the sensor.
+
 ## LICENSE
 
 - The source code in this repository is licensed under the Terms of the [MIT License](https://github.com/BurraAbhishek/toxic_place_detection/blob/main/LICENSE).
