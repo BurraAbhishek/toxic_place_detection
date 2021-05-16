@@ -106,14 +106,20 @@ NOTE: This module diagram was created on Tinkercad and is licensed under Creativ
   - Brown wires: A0, A1, A2, A3, A4 and/or A5, any of the analog pin(s) can be used. Each pin connects to Analog Output pin of the Gas sensor.
 
 ## Usage
-1. Either download this repository or git clone using `$ git clone https://github.com/BurraAbhishek/toxic_place_detection.git`.
-2. The source code is in [src/toxicdetection.ino](https://github.com/BurraAbhishek/toxic_place_detection/blob/main/src/toxicdetection.ino). Open it using an Arduino IDE.
-3. Connect the Arduino board to your local machine using an Arduino-compatible USB Cable.
-4. Set the appropriate port number in the Arduino IDE (One port will be displayed, for example, `COM1`)
-5. Compile the program and run it.
-6. To use battery power instead of USB power, shift the jumper in the Arduino board from USB to EXT (External power). The jumper is located next to the USB slot.
+1. Either download this repository or git clone using 
+   ```
+   $ git clone https://github.com/BurraAbhishek/toxic_place_detection.git
+   ```
+3. The source code is in [src/toxicdetection.ino](https://github.com/BurraAbhishek/toxic_place_detection/blob/main/src/toxicdetection.ino). Open it using an Arduino IDE.
+4. Connect the Arduino board to your local machine using an Arduino-compatible USB Cable.
+5. Set the appropriate port number in the Arduino IDE (One port will be displayed, for example, `COM1`)
+6. Compile the program and run it.
+7. To use battery power instead of USB power, shift the jumper in the Arduino board from USB to EXT (External power). The jumper is located next to the USB slot.
 
 
+## Test Simulation
+A simulation of the above is hosted on [Tinkercad](https://www.tinkercad.com/). To see a demo of how this program runs, check https://www.tinkercad.com/things/28n51KBNIkE, a functional version (remix) of the [above prototype](https://github.com/BurraAbhishek/toxic_place_detection#module-diagram). 
+ 
 ## LICENSE
 
-The source code is licensed under the Terms of the [MIT License](https://github.com/BurraAbhishek/toxic_place_detection/blob/main/LICENSE).
+- The source code in this repository is licensed under the Terms of the [MIT License](https://github.com/BurraAbhishek/toxic_place_detection/blob/main/LICENSE).
