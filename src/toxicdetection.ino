@@ -7,14 +7,17 @@ void setup() {
     pinMode(A0, INPUT); // Gas sensor 1 - MQ135
     pinMode(A1, INPUT); // Gas sensor 2 - MQ136
     pinMode(A2, INPUT); // Gas sensor 3 - MQ137
-    // pinMode(A3, INPUT); // Gas sensor 4
-    // pinMode(A4, INPUT); // Gas sensor 5
-    // pinMode(A5, INPUT); // Gas sensor 6
+    pinMode(A3, INPUT); // Gas sensor 4 - MQ9
+    pinMode(A4, INPUT); // Gas sensor 5 - MQ5
+    // pinMode(A5, INPUT); // Gas sensor 6 - MQ2, not implemented due to lower permissible limits in MQ9
 }
 
+
 void loop() {
-    // Interfacing with MQ135 to begin with
+    // Preset the safety index to -1
     int safety_index = -1;
+    
+    // Interfacing with MQ135 to begin with
     float air_quality = analogRead(A0);
     // The standard upper limit is 100, considering sensitive groups.
     if(air_quality < 100) {
@@ -27,6 +30,7 @@ void loop() {
         // Air quality is extremely poor
         safety_index = setSafetyIndex(safety_index, 2);
     }
+
     // Interfacing with MQ136
     float h2s_detected = analogRead(A1);    
     // The standard upper limit is 1 PPM, according to OSHA(2011).
@@ -40,6 +44,7 @@ void loop() {
         // Hazardous
         safety_index = setSafetyIndex(safety_index, 2);
     }
+
     // Interfacing with MQ137
     float ammonia_detected = analogRead(A2);    
     // The recommended safe limit is 25 PPM, according to OSHA(2019).
@@ -53,17 +58,35 @@ void loop() {
         // Hazardous
         safety_index = setSafetyIndex(safety_index, 2);
     }
-    // The approach implemented from line 20 to line 30 can be used for the other sensors
-    if(safety_index == 0) {
-        // Safe environment
-        safezone();
-    } else if(safety_index == 1) {
-        // Slightly hazardous
-        warnzone();
-    } else if(safety_index == 2) {
-        // Extremely hazardous
-        dangerzone();
+
+    // Interfacing with MQ9
+    float co_detected = analogRead(A3);    
+    // The recommended safe limit is 35 PPM, according to OSHA.
+    if(co_detected < 35) {
+        // Safe
+        safety_index = setSafetyIndex(safety_index, 0);
+    } else if(co_detected > 35 && co_detected < 50) {
+        // Permissible limits, according to OSHA.
+        safety_index = setSafetyIndex(safety_index, 1);
+    } else if(co_detected > 50) {
+        // Hazardous
+        safety_index = setSafetyIndex(safety_index, 2);
     }
+
+    // Interfacing with MQ5
+    float lpg_naturalgas_detected = analogRead(A4);    
+    // The recommended limit is 1000 PPM, according to OSHA.
+    if(lpg_naturalgas_detected < 1000) {
+        // Safe
+        safety_index = setSafetyIndex(safety_index, 0);
+    } else iflpg_naturalgas_detected > 1000 && lpg_naturalgas_detected < 2000) {
+        // Revised IDLH: 2000 PPM
+        safety_index = setSafetyIndex(safety_index, 1);
+    } else if(lpg_naturalgas_detected > 2000) {
+        // Hazardous
+        safety_index = setSafetyIndex(safety_index, 2);
+    }    
+    
     delay(1000); // The time interval between two readings is 1000 milliseconds (1 second).
 }
 
