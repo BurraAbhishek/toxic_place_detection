@@ -39,7 +39,7 @@ END
 ```
 
 
-For the sensors which show low reading in hazardous environments and high reading in safe environments (e.g. MQ-9):
+For the sensors which show low reading in hazardous environments and high reading in safe environments:
 The basic algorithm to determine if an environment is safe is as follows:
 ```
 BEGIN
