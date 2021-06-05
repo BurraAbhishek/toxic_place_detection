@@ -4,9 +4,9 @@ void setup() {
     pinMode(4, OUTPUT); // Yellow Light
     pinMode(6, OUTPUT); // Red Light
     pinMode(8, OUTPUT); // Buzzer
-    pinMode(A0, INPUT); // Gas sensor 1
-    // pinMode(A1, INPUT); // Gas sensor 2
-    // pinMode(A2, INPUT); // Gas sensor 3
+    pinMode(A0, INPUT); // Gas sensor 1 - MQ135
+    pinMode(A1, INPUT); // Gas sensor 2 - MQ136
+    pinMode(A2, INPUT); // Gas sensor 3 - MQ137
     // pinMode(A3, INPUT); // Gas sensor 4
     // pinMode(A4, INPUT); // Gas sensor 5
     // pinMode(A5, INPUT); // Gas sensor 6
@@ -15,7 +15,7 @@ void setup() {
 void loop() {
     // Interfacing with MQ135 to begin with
     int safety_index = -1;
-    int air_quality = analogRead(A0);
+    float air_quality = analogRead(A0);
     // The standard upper limit is 100, considering sensitive groups.
     if(air_quality < 100) {
         // Air quality is good
@@ -25,6 +25,32 @@ void loop() {
         safety_index = setSafetyIndex(safety_index, 1);
     } else if(air_quality > 250) {
         // Air quality is extremely poor
+        safety_index = setSafetyIndex(safety_index, 2);
+    }
+    // Interfacing with MQ136
+    float h2s_detected = analogRead(A1);    
+    // The standard upper limit is 1 PPM, according to OSHA(2011).
+    if(h2s_detected < 1) {
+        // Safe
+        safety_index = setSafetyIndex(safety_index, 0);
+    } else if(h2s_detected > 1 && h2s_detected < 30) {
+        // Permissible limits
+        safety_index = setSafetyIndex(safety_index, 1);
+    } else if(h2s_detected > 30) {
+        // Hazardous
+        safety_index = setSafetyIndex(safety_index, 2);
+    }
+    // Interfacing with MQ137
+    float ammonia_detected = analogRead(A2);    
+    // The recommended safe limit is 25 PPM, according to OSHA(2019).
+    if(ammonia_detected < 25) {
+        // Safe
+        safety_index = setSafetyIndex(safety_index, 0);
+    } else if(ammonia_detected > 25 && ammonia_detected < 50) {
+        // Permissible limits, according to OSHA, 50 limit strictly enforced.
+        safety_index = setSafetyIndex(safety_index, 1);
+    } else if(ammonia_detected > 50) {
+        // Hazardous
         safety_index = setSafetyIndex(safety_index, 2);
     }
     // The approach implemented from line 20 to line 30 can be used for the other sensors
