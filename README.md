@@ -132,3 +132,17 @@ Testing:
 ## LICENSE
 
 - The source code in this repository is licensed under the Terms of the [MIT License](https://github.com/BurraAbhishek/toxic_place_detection/blob/main/LICENSE).
+
+## References
+
+[[1] Doukas, Charalampos & Maglogiannis, Ilias. (2012). Bringing IoT and Cloud Computing towards Pervasive Healthcare. Proceedings - 6th International Conference on Innovative Mobile and Internet Services in Ubiquitous Computing, IMIS 2012. 922-926. 10.1109/IMIS.2012.26.](https://www.researchgate.net/publication/261431852_Bringing_IoT_and_Cloud_Computing_towards_Pervasive_Healthcare)
+
+[[2]Kinnera, Bharath Kumar Sai & Subbareddy, Somula & Luhach, Ashish. (2019). IOT based Air Quality Monitoring System Using MQ135 and MQ7 with Machine Learning Analysis. Scalable Computing: Practice and Experience. 20. 599-606. 10.12694/scpe.v20i4.1561.](https://www.researchgate.net/publication/337780520_IOT_based_Air_Quality_Monitoring_System_Using_MQ135_and_MQ7_with_Machine_Learning_Analysis)
+
+[[3]Kinnera, Bharath Kumar Sai & Mukherjee, Subhaditya & Sultana, Parveen. (2019). Low Cost IoT Based Air Quality Monitoring Setup Using Arduino and MQ Series Sensors With Dataset Analysis. Procedia Computer Science. 165. 322-327. 10.1016/j.procs.2020.01.043.](https://www.researchgate.net/publication/339543962_Low_Cost_IoT_Based_Air_Quality_Monitoring_Setup_Using_Arduino_and_MQ_Series_Sensors_With_Dataset_Analysis)
+
+[[4]fs4-howmuch2.pdf (osha.gov)](https://www.osha.gov/sites/default/files/2019-03/fs4-howmuch2.pdf)
+
+[[5]Sampling and Analytical Methods | Carbon Monoxide In Workplace Atmospheres (Direct-Reading Monitor) | Occupational Safety and Health Administration (osha.gov)](https://www.osha.gov/dts/sltc/methods/inorganic/id209/id209.html)
+
+[[6]CDC - Immediately Dangerous to Life or Health Concentrations (IDLH): L.P.G. - NIOSH Publications and Products](https://www.cdc.gov/niosh/idlh/68476857.html)
